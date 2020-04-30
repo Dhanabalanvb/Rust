@@ -1,19 +1,18 @@
-use actix_web::{web, App, HttpResponse, HttpServer, Responder};
+extern crate actix_web;
+
 mod models;
+mod actions;
 
-
+use actix_web::{ App,  HttpServer };
+use actions::leadactions::*;
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
-            .route("/",web::get().to(models::index))
-            .route("/ind2",web::get().to(models::Lead::index2))
-        
-           // .route("/", web::get().to(index))
-            //.route("/again", web::get().to(index2))
+            .service(get_lead)
     })
-    .bind("192.168.43.25:8088")?
+    .bind("127.0.0.1:8088")?
     .run()
     .await
 }

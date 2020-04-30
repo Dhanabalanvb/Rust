@@ -1,5 +1,5 @@
 [package]
-name = "Demo_actixWeb"
+name = "demo_actixweb"
 version = "0.1.0"
 authors = ["DhanaSowmi"]
 edition = "2018"
@@ -9,3 +9,6 @@ edition = "2018"
 [dependencies]
 actix-rt="1.0"
 actix-web="2.0"
+serde = "1.0.106" # For serializing and de-serializing
+serde_json = "1.0.52" # For serializing and de-serializing
+futures = "0.3.4" # For implementing cusotom responder
